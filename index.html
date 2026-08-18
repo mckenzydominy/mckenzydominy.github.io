@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>McKenzy Dominy — An Unfinished Draft</title>
+
+    <meta name="description" content="The little corner of the internet belonging to McKenzy Dominy — Welsh creator, author and storyteller.">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@400;500;600;700&display=swap');
+
+        :root {
+            --cream: #f5efe4;
+            --paper: #fbf8f1;
+            --brown: #33251f;
+            --orange: #b85c32;
+            --muted: #76665c;
+            --line: #d8cbbd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--brown);
+            font-family: "DM Sans", sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            width: 100%;
+            padding: 25px 6vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background: var(--orange);
+            left: 0;
+            bottom: -4px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            padding: 150px 8vw 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background: rgba(184, 92, 50, 0.08);
+            top: 12%;
+            right: -130px;
+        }
+
+        .eyebrow {
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.72rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(4rem, 10vw, 9rem);
+            line-height: 0.88;
+            font-weight: 500;
+            letter-spacing: -0.055em;
+            max-width: 1000px;
+        }
+
+        .hero-tagline {
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+            font-size: clamp(1.5rem, 3vw, 2.6rem);
+            margin-top: 35px;
+            max-width: 700px;
+        }
+
+        .hero-description {
+            max-width: 570px;
+            margin-top: 25px;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .scroll-note {
+            position: absolute;
+            bottom: 35px;
+            left: 8vw;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--muted);
+        }
+
+        /* INTRO */
+
+        .intro {
+            background: var(--paper);
+            padding: 130px 8vw;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .section-label {
+            color: var(--orange);
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+        }
+
+        .intro h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            line-height: 1;
+            font-weight: 500;
+            margin-top: 20px;
+        }
+
+        .intro-text {
+            max-width: 560px;
+            font-size: 1.05rem;
+            color: var(--muted);
+            align-self: end;
+        }
+
+        .intro-text p + p {
+            margin-top: 22px;
+        }
+
+        .highlight {
+            color: var(--brown);
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+            font-size: 1.3rem;
+        }
+
+        /* CURRENTLY */
+
+        .currently {
+            padding: 120px 8vw;
+        }
+
+        .currently-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 50px;
+        }
+
+        .currently h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 500;
+            line-height: 1;
+            margin-top: 15px;
+        }
+
+        .currently-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            border-top: 1px solid var(--line);
+            padding-top: 20px;
+        }
+
+        .card-number {
+            color: var(--orange);
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+        }
+
+        .card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 2rem;
+            font-weight: 500;
+            margin: 30px 0 15px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        /* BOOKS */
+
+        .books {
+            background: var(--brown);
+            color: var(--cream);
+            padding: 120px 8vw;
+        }
+
+        .books .section-label {
+            color: #e59a72;
+        }
+
+        .books h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(3rem, 6vw, 6rem);
+            font-weight: 500;
+            line-height: 0.95;
+            margin: 20px 0 70px;
+        }
+
+        .book {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr;
+            gap: 30px;
+            padding: 30px 0;
+            border-top: 1px solid rgba(245,239,228,0.2);
+        }
+
+        .book:last-child {
+            border-bottom: 1px solid rgba(245,239,228,0.2);
+        }
+
+        .book-year {
+            color: #d9906d;
+            font-size: 0.8rem;
+        }
+
+        .book h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+
+        .book p {
+            color: #c9bbb0;
+            font-size: 0.9rem;
+        }
+
+        /* QUOTE */
+
+        .quote {
+            padding: 150px 8vw;
+            text-align: center;
+            background: var(--paper);
+        }
+
+        blockquote {
+            max-width: 900px;
+            margin: auto;
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            line-height: 1.05;
+            font-weight: 400;
+        }
+
+        .quote-credit {
+            margin-top: 35px;
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.7rem;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--paper);
+            border-top: 1px solid var(--line);
+            padding: 60px 8vw 35px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        footer h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 2rem;
+            font-weight: 500;
+        }
+
+        .socials {
+            display: flex;
+            gap: 25px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .footer-bottom {
+            margin-top: 80px;
+            color: var(--muted);
+            font-size: 0.7rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 20px 6vw;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 90vh;
+                padding: 130px 7vw 70px;
+            }
+
+            h1 {
+                font-size: clamp(4rem, 18vw, 7rem);
+            }
+
+            .intro {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 90px 7vw;
+            }
+
+            .currently {
+                padding: 90px 7vw;
+            }
+
+            .currently-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .currently-header {
+                display: block;
+            }
+
+            .book {
+                grid-template-columns: 55px 1fr;
+            }
+
+            .book p {
+                grid-column: 2;
+            }
+
+            .books {
+                padding: 90px 7vw;
+            }
+
+            .quote {
+                padding: 100px 7vw;
+            }
+
+            footer {
+                padding: 50px 7vw 30px;
+            }
+
+            .footer-top {
+                display: block;
+            }
+
+            .socials {
+                margin-top: 30px;
+                flex-wrap: wrap;
+            }
+
+            .footer-bottom {
+                display: block;
+                margin-top: 60px;
+            }
+
+            .footer-bottom span {
+                display: block;
+                margin-top: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <a href="#" class="logo">McKenzy Dominy</a>
+
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#now">Now</a>
+            <a href="#books">Books</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+        <div class="eyebrow">
+            Welsh creator · Author · Storyteller
+        </div>
+
+        <h1>
+            McKenzy<br>
+            Dominy
+        </h1>
+
+        <div class="hero-tagline">
+            an unfinished draft with many possible endings.
+        </div>
+
+        <p class="hero-description">
+            I'm a cosy Welsh creator who loves telling stories,
+            asking questions and documenting life as though
+            I'm living inside a coming-of-age movie.
+        </p>
+
+        <div class="scroll-note">
+            ↓ come inside
+        </div>
+
+    </header>
+
+
+    <!-- ABOUT -->
+
+    <section class="intro" id="about">
+
+        <div>
+            <div class="section-label">01 — About</div>
+
+            <h2>
+                I'm figuring<br>
+                it out as<br>
+                I go.
+            </h2>
+        </div>
+
+        <div class="intro-text">
+
+            <p class="highlight">
+                I make things because I'm curious about people.
+            </p>
+
+            <p>
+                I'm a Welsh author, creator and storyteller interested
+                in the strange, complicated and occasionally ridiculous
+                business of being human.
+            </p>
+
+            <p>
+                I could talk for hours about the world, society,
+                psychology, stories and why people do the things they do.
+                Writing has always been one of the ways I make sense of it.
+            </p>
+
+            <p>
+                These days, I'm taking that same curiosity into my
+                everyday life — documenting university, friendships,
+                creativity, growing up and whatever happens next.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CURRENTLY -->
+
+    <section class="currently" id="now">
+
+        <div class="currently-header">
+
+            <div>
+                <div class="section-label">02 — Currently</div>
+
+                <h2>
+                    What's<br>
+                    happening?
+                </h2>
+            </div>
+
+        </div>
+
+
+        <div class="currently-grid">
+
+            <article class="card">
+
+                <div class="card-number">01</div>
+
+                <h3>Living</h3>
+
+                <p>
+                    Documenting a new chapter of life at university,
+                    one ordinary day at a time — except I'm trying
+                    to make the ordinary feel a little cinematic.
+                </p>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-number">02</div>
+
+                <h3>Creating</h3>
+
+                <p>
+                    Making videos, taking photographs, writing things
+                    down and figuring out what kind of creator I want
+                    to become.
+                </p>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-number">03</div>
+
+                <h3>Writing</h3>
+
+                <p>
+                    Still writing stories about people, society,
+                    psychology and all the complicated things
+                    we don't quite know how to explain.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- BOOKS -->
+
+    <section class="books" id="books">
+
+        <div class="section-label">03 — The Books</div>
+
+        <h2>
+            Stories I've<br>
+            left behind.
+        </h2>
+
+
+        <article class="book">
+
+            <div class="book-year">2021</div>
+
+            <h3>Why The Good Die Young</h3>
+
+            <p>
+                A sixteen-year-old's imagining of the afterlife,
+                exploring grief through a young adult fantasy story.
+                My first novel, and a piece of art formed from grief.
+            </p>
+
+        </article>
+
+
+        <article class="book">
+
+            <div class="book-year">2023</div>
+
+            <h3>Blood Brides</h3>
+
+            <p>
+                Vampires, young women, capitalism and the patriarchy.
+                My first attempt at bringing together my fascination
+                with literature and sociology.
+            </p>
+
+        </article>
+
+
+        <article class="book">
+
+            <div class="book-year">2024</div>
+
+            <h3>Cordelia Kills</h3>
+
+            <p>
+                A Regency story about familial pressure,
+                social expectations and the burden of becoming
+                the legacy of a family that is no longer there.
+            </p>
+
+        </article>
+
+
+        <article class="book">
+
+            <div class="book-year">2025</div>
+
+            <h3>Starring Leopold Rigby</h3>
+
+            <p>
+                A turning point. A more mature exploration of
+                human experience, identity and the things that
+                follow us into adulthood.
+            </p>
+
+        </article>
+
+    </section>
+
+
+    <!-- QUOTE -->
+
+    <section class="quote">
+
+        <blockquote>
+            “I write when I have questions.
+            I write when I have answers.”
+        </blockquote>
+
+        <div class="quote-credit">
+            — McKenzy Dominy
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer id="contact">
+
+        <div class="footer-top">
+
+            <div>
+                <div class="section-label">04 — Come find me</div>
+
+                <h2>
+                    The story<br>
+                    continues elsewhere.
+                </h2>
+            </div>
+
+            <div class="socials">
+
+                <a href="#" target="_blank">
+                    Instagram
+                </a>
+
+                <a href="#" target="_blank">
+                    YouTube
+                </a>
+
+                <a href="#" target="_blank">
+                    Substack
+                </a>
+
+                <a href="#" target="_blank">
+                    Podcast
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 McKenzy Dominy
+            </span>
+
+            <span>
+                Made somewhere between Wales and Surrey.
+            </span>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
