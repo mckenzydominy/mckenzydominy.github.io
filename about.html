@@ -1,1 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>About — McKenzy Dominy</title>
+
+    <meta name="description" content="About McKenzy Dominy — Welsh creator, author and storyteller.">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@400;500;600&display=swap');
+
+        :root {
+            --cream: #f5efe4;
+            --paper: #fbf8f1;
+            --brown: #33251f;
+            --orange: #b85c32;
+            --muted: #76665c;
+            --line: #d8cbbd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--brown);
+            font-family: "DM Sans", sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAV */
+
+        nav {
+            padding: 25px 6vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links a {
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background: var(--orange);
+            left: 0;
+            bottom: -4px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO */
+
+        .page-hero {
+            padding: 120px 8vw 100px;
+            background: var(--paper);
+        }
+
+        .eyebrow {
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(4rem, 10vw, 9rem);
+            line-height: 0.9;
+            font-weight: 500;
+            letter-spacing: -0.05em;
+            max-width: 900px;
+        }
+
+        .hero-line {
+            max-width: 650px;
+            margin-top: 40px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-style: italic;
+        }
+
+        /* MAIN */
+
+        .about-content {
+            max-width: 1100px;
+            margin: auto;
+            padding: 110px 8vw;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 70px;
+        }
+
+        .section-label {
+            color: var(--orange);
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+        }
+
+        .story {
+            max-width: 700px;
+        }
+
+        .story p {
+            font-size: 1.05rem;
+            color: var(--muted);
+            margin-bottom: 28px;
+        }
+
+        .story .large {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.8rem, 3vw, 2.7rem);
+            color: var(--brown);
+            line-height: 1.2;
+            margin-bottom: 45px;
+        }
+
+        /* WRITING */
+
+        .writing-section {
+            background: var(--brown);
+            color: var(--cream);
+            padding: 110px 8vw;
+        }
+
+        .writing-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 70px;
+        }
+
+        .writing-section .section-label {
+            color: #e59a72;
+        }
+
+        .writing-section h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.8rem, 5vw, 5rem);
+            font-weight: 500;
+            line-height: 1;
+            margin-bottom: 40px;
+        }
+
+        .writing-section p {
+            color: #c9bbb0;
+            max-width: 700px;
+            font-size: 1rem;
+            margin-bottom: 25px;
+        }
+
+        .writing-quote {
+            color: var(--cream) !important;
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+            font-size: 1.6rem !important;
+            line-height: 1.3;
+            margin-top: 45px;
+        }
+
+        /* CURRENT CHAPTER */
+
+        .chapter {
+            padding: 120px 8vw;
+            background: var(--paper);
+        }
+
+        .chapter-inner {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .chapter-heading {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: end;
+            margin-bottom: 70px;
+        }
+
+        .chapter h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(3rem, 6vw, 6rem);
+            font-weight: 500;
+            line-height: 0.95;
+        }
+
+        .chapter-intro {
+            color: var(--muted);
+            max-width: 450px;
+        }
+
+        .chapter-list {
+            border-top: 1px solid var(--line);
+        }
+
+        .chapter-item {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr;
+            gap: 30px;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .chapter-number {
+            color: var(--orange);
+            font-size: 0.75rem;
+        }
+
+        .chapter-item h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+
+        .chapter-item p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* CLOSING */
+
+        .closing {
+            padding: 150px 8vw;
+            text-align: center;
+        }
+
+        .closing h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.8rem, 6vw, 6rem);
+            font-weight: 500;
+            line-height: 1;
+            max-width: 950px;
+            margin: auto;
+        }
+
+        .closing p {
+            margin-top: 30px;
+            color: var(--muted);
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 40px 8vw;
+            display: flex;
+            justify-content: space-between;
+            color: var(--muted);
+            font-size: 0.75rem;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 20px 6vw;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .page-hero {
+                padding: 90px 7vw 80px;
+            }
+
+            .about-content,
+            .writing-section,
+            .chapter {
+                padding: 85px 7vw;
+            }
+
+            .about-grid,
+            .writing-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .chapter-heading {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .chapter-item {
+                grid-template-columns: 50px 1fr;
+            }
+
+            .chapter-item p {
+                grid-column: 2;
+            }
+
+            .closing {
+                padding: 100px 7vw;
+            }
+
+            footer {
+                display: block;
+            }
+
+            footer span {
+                display: block;
+                margin-top: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <a href="index.html" class="logo">
+            McKenzy Dominy
+        </a>
+
+        <div class="nav-links">
+            <a href="about.html">About</a>
+            <a href="index.html#now">Now</a>
+            <a href="books.html">Books</a>
+            <a href="journal.html">Journal</a>
+            <a href="watch.html">Watch</a>
+            <a href="archive.html">Archive</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="page-hero">
+
+        <div class="eyebrow">
+            01 — About
+        </div>
+
+        <h1>
+            Hello,<br>
+            I'm McKenzy.
+        </h1>
+
+        <p class="hero-line">
+            A cosy Welsh creator who loves to tell stories.
+        </p>
+
+    </header>
+
+
+    <!-- STORY -->
+
+    <main class="about-content">
+
+        <div class="about-grid">
+
+            <div class="section-label">
+                The person
+            </div>
+
+            <div class="story">
+
+                <p class="large">
+                    I'm interested in people. Why we behave the way
+                    we do. The worlds we build. The things we believe.
+                    The things we pretend not to believe.
+                </p>
+
+                <p>
+                    I'm a Welsh author, creator and storyteller currently
+                    figuring out what happens when you enter a completely
+                    new chapter of your life.
+                </p>
+
+                <p>
+                    I love stories in pretty much every form. Books,
+                    films, television, photographs, conversations,
+                    overheard sentences, the strange little moments
+                    that you don't realise matter until years later.
+                </p>
+
+                <p>
+                    I'm fascinated by society and the human mind, and
+                    I could probably talk about either for several hours
+                    if you let me.
+                </p>
+
+                <p>
+                    This website is where I collect some of those things:
+                    the stories I've written, the things I'm making,
+                    the places I'm going and the life I'm currently
+                    living.
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- WRITING -->
+
+    <section class="writing-section">
+
+        <div class="writing-grid">
+
+            <div class="section-label">
+                Writing
+            </div>
+
+            <div>
+
+                <h2>
+                    I write when<br>
+                    I have questions.
+                </h2>
+
+                <p>
+                    I've always written because there was something
+                    I couldn't quite figure out.
+                </p>
+
+                <p>
+                    Sometimes that means asking a question through
+                    fiction. Sometimes it means writing because I've
+                    reached an answer that feels important enough
+                    to share.
+                </p>
+
+                <p>
+                    I write across genres, but underneath all of them
+                    I'm really interested in the same thing:
+                    <strong>people.</strong>
+                </p>
+
+                <p>
+                    My stories tend to explore human experience,
+                    psychology, society, identity and the strange
+                    pressures that shape the people we become.
+                </p>
+
+                <p class="writing-quote">
+                    "The genre changes. The question usually doesn't."
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CURRENT CHAPTER -->
+
+    <section class="chapter">
+
+        <div class="chapter-inner">
+
+            <div class="chapter-heading">
+
+                <div>
+
+                    <div class="section-label">
+                        The current chapter
+                    </div>
+
+                    <h2>
+                        Becoming<br>
+                        someone new.
+                    </h2>
+
+                </div>
+
+                <p class="chapter-intro">
+                    I'm currently documenting what it feels like
+                    to step into a new world — university, creativity,
+                    friendships, work, independence and everything
+                    that comes with growing up.
+                </p>
+
+            </div>
+
+
+            <div class="chapter-list">
+
+                <article class="chapter-item">
+
+                    <div class="chapter-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Creating
+                    </h3>
+
+                    <p>
+                        Building a life around stories, photography,
+                        video, writing and whatever else catches my
+                        attention.
+                    </p>
+
+                </article>
+
+
+                <article class="chapter-item">
+
+                    <div class="chapter-number">
+                        02
+                    </div>
+
+                    <h3>
+                        University
+                    </h3>
+
+                    <p>
+                        Learning, making friends, working, figuring
+                        myself out and occasionally pretending I know
+                        what I'm doing.
+                    </p>
+
+                </article>
+
+
+                <article class="chapter-item">
+
+                    <div class="chapter-number">
+                        03
+                    </div>
+
+                    <h3>
+                        The internet
+                    </h3>
+
+                    <p>
+                        Documenting this chapter of my life and seeing
+                        where it takes me.
+                    </p>
+
+                </article>
+
+
+                <article class="chapter-item">
+
+                    <div class="chapter-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Whatever comes next
+                    </h3>
+
+                    <p>
+                        This is the exciting bit. I don't know yet.
+                        And that's rather the point.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CLOSING -->
+
+    <section class="closing">
+
+        <h2>
+            McKenzy Dominy is an unfinished draft with many possible endings.
+        </h2>
+
+        <p>
+            I'm still writing it.
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <span>
+            © 2026 McKenzy Dominy
+        </span>
+
+        <span>
+            <a href="index.html">Back to home ↑</a>
+        </span>
+
+    </footer>
+
+</body>
+</html>
